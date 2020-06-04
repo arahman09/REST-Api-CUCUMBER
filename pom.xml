@@ -26,6 +26,21 @@
                 <artifactId>rest-assured</artifactId>
                 <version>4.3.0</version>
             </dependency>
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-java</artifactId>
+                <version>4.8.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.cucumber</groupId>
+                <artifactId>cucumber-junit</artifactId>
+                <version>4.8.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.vintage</groupId>
+                <artifactId>junit-vintage-engine</artifactId>
+                <version>5.7.0-M1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

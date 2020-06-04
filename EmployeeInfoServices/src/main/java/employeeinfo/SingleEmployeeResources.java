@@ -4,6 +4,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 
 public class SingleEmployeeResources {
@@ -20,6 +21,18 @@ public class SingleEmployeeResources {
         Assert.assertEquals(statusCode,200);
     }
 
+    public static int getSingleEmployeeWithValidRequest(String baseUrl,String path){
+        Response response = get(baseUrl+ path);
+        String statusLine = response.getStatusLine();
+        int statusCode = response.statusCode();
+        return statusCode;
+    }
+
+    public static int getSingleEmployeeWithInValidRequest(String baseUrl,String path){
+        Response response = get(baseUrl+ path);
+        int statusCode = response.statusCode();
+        return statusCode;
+    }
     public void callSingleEmployeeWithInvalidRequest(){
         Response response = given().when().get(baseUrl+"/api/NoSingleEmployeeResources/590a4acd35522970c7956cdf").then().statusCode(404).extract().response();
         String statusLine = response.getStatusLine();
