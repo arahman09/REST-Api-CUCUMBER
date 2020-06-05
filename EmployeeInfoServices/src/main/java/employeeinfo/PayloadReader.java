@@ -13,15 +13,10 @@ import java.nio.file.Paths;
 
 public class PayloadReader {
 
-    public static String baseUrl = "http://info.venturepulse.org:8080/service-webapp";
-    public static String resourcePath = "/api/SingleEmployeeResources";
-    public static String moduleName = "/EmployeeInfoServices";
-
-    public static int postPayload(String baseUrl, String resourcePath,String path)throws IOException{
+    public static int postEmpPayload(String baseUrl, String resourcePath,String path)throws IOException{
         RestAssured.baseURI = baseUrl;
         String workingDirectory = System.getProperty("user.dir");
-        File filePath = new File(workingDirectory+moduleName+path);
-
+        File filePath = new File(workingDirectory+path);
         String json = generateStringFromSource(filePath.getAbsolutePath());
         Response response = null;
         try{
@@ -40,10 +35,4 @@ public class PayloadReader {
      return json;
     }
 
-    public static void main(String[] args)throws IOException {
-        File file = new File(JsonFile.singleEmpProfile);
-        System.out.println(file.getPath());
-        int response = postPayload(baseUrl,resourcePath,JsonFile.singleEmpProfile);
-        System.out.println(response);
-    }
 }
